@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="ie ie9" lang="en-US">
+    <![endif]-->
+    <html lang="en-US">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link media="all" href="{{ url_for('static', filename='main.css') }}" rel="stylesheet" />
+            <title>Solo Leveling - Chapter {{ chapter }}</title>
+            <link rel='stylesheet' id='toivo-lite-fonts-css' href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C300italic%2C400italic%2C700italic%7CRaleway%3A400%2C600%2C500%2C700%2C800&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+            <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+            <style type="text/css">
+                div.seperator, div.seperator a, div.seperator a img {
+                    border: 0;
+                }
+            </style>
+
+        </head>
+        <body class="comic-template-default single single-comic postid-6 custom-header-image top-menus-disabled layout-1c custom-background" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+            <div id="page" class="site">
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <header id="masthead" class="site-header" role="banner" aria-labelledby="site-title" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+                <div class="wrap">
+                    <div class="site-branding">
+                        <div id="site-title" class="site-title" itemprop="headline">
+                            <a href="#" rel="home">Solo Leveling Manga Online</a>
+                        </div>
+                        <div id="site-description" class="site-description" itemprop="description">Read Solo Leveling Manga Online in High Quality</div>
+                    </div>
+                </div>
+            </header>
+            <button id="nav-toggle">Menu</button>
+            <nav id="menu-primary" class="menu main-navigation" role="navigation" aria-label="Primary Menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+                <h2 class="screen-reader-text">Primary Menu</h2>
+                <div class="wrap">
+                    <div class="menu-header-container">
+                        <ul id="menu-primary-items" class="menu-items">
+                            <li id="menu-item-1801" class="menu-item menu-item-type-post_type menu-item-object-comic current-menu-item menu-item-1801"><a href="{{ url_for('solo_leveling.chapterPage', chapter=chapters[0].chapter) }}" aria-current="page">Solo Leveling, {{chapters[0].label}}</a></li>
+                            <li id="menu-item-2233" class="menu-item menu-item-type-post_type menu-item-object-comic menu-item-2233"><a href="{{ url_for('solo_leveling.chapterPage', chapter=chapters[-1].chapter) }}">Solo Leveling, {{chapters[-1].label}}</a></li>
+                            <li id="menu-item-1796" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1796"><a href="#">Privacy Policy</a></li>
+                            <li id="menu-item-1797" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1797"><a href="#">Terms and Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div id="content" class="site-content">
+            <div class="wrap">
+                <div class="wrap-inside">
+                    <nav role="navigation" aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs" itemprop="breadcrumb">
+                        <span class="trail-before">
+                            <h2 class="screen-reader-text">Breadcrumbs</h2>
+                            <div class="wrap">
+                        </span>
+                        <ul class="trail-items"><li><span class="trail-begin"><a href="#" rel="home">Home</a></span>
+                        </li><li><a href="#">Mangas</a>
+                        </li><li><span class="trail-end">Solo Leveling Chapter {{ chapter }}</span></li></ul>
+                        <span class="trail-after"></div></span>
+                    </nav>
+                    <div id="primary" class="content-area">
+                        <main id="main" class="site-main" role="main" itemprop="mainContentOfPage">
+                            <div class='code-block code-block-4' style='margin: 8px auto; text-align: center; display: block; clear: both;'>
+                                <article id="post-6" class="post-6 comic type-comic status-publish tag-an-sang-min tag-bae-yoon-suk tag-baek-yoon-ho tag-brent tag-cha-hae-in tag-chapter tag-chapters tag-cho-gyu-hwan tag-choi-jong-in tag-leveling tag-light-novel tag-manga tag-manhwa tag-novel tag-original tag-raw tag-read tag-read-solo-leveling tag-reddit tag-reddit-solo-leveling tag-solo tag-solo-leveling tag-solo-leveling-chapter tag-solo-leveling-manga tag-solo-leveling-manga-online tag-solo-leveling-reddit tag-sung-jin-woo tag-sung-su-ho tag-volume tag-volumes tag-webcomic tag-webnovel tag-yoo-myung-han entry" itemscope="itemscope" itemtype="http://schema.org/CreativeWork">
+                                    <div class="entry-inner">
+                                        <header class="entry-header">
+                                            <h1 class="entry-title" itemprop="headline">Solo Leveling - Chapter {{ chapter }}</h1>
+                                        </header>
+                                        <div class="entry-content" itemprop="text">
+                                            {% for image in images %}
+                                            <p>&nbsp;</p>
+                                            <div class="separator">
+                                                <a href="{{ url_for('solo_leveling.images', chapter=chapter, filename=image) }}">
+                                                    <img src="{{ url_for('solo_leveling.images', chapter=chapter, filename=image) }}" width="750" border="0"/>
+                                                </a>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                </article>
+                                <nav class="navigation post-navigation" role="navigation">
+                                <h2 class="screen-reader-text">Post navigation</h2>
+                                <div class="nav-links"><div class="nav-next"><a href="{{ url_for('solo_leveling.chapterPage', chapter=chapter+1) }}" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next:</span> <span class="post-title">Solo Leveling, Chapter {{chapter+1}}</span></a></div></div>
+                                </nav>
+                                <div id="disqus_thread"></div>
+                        </main>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <aside id="sidebar-subsidiary" class="sidebar-subsidiary sidebar" role="complementary" aria-labelledby="sidebar-subsidiary-header" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+                    <h2 class="screen-reader-text" id="sidebar-subsidiary-header">Subsidiary Sidebar</h2>
+                    <div class="wrap">
+                        <div class="wrap-inside">
+                            <section id="text-2" class="widget widget_text">
+                                <h3 class="widget-title">About</h3>
+                                <div class="textwidget">
+                                    <p>Solo Leveling (나 혼자만 레벨업, Na Honjaman Lebel-eob) known as I Level Up Alone in English is a Korean novel written by Chu-Gong, It was serialized in Papyrus and later in KakaoPage and concluded with 14 volumes and 270 chapters. In April 13, 2018, a webtoon serialization started in Korean mobile site KakaoPage drawn by artists Hyeon – Gun and Jang Sung-Rak.</p>
+                                    <p></p>
+                                    <div id="M631257ScriptRootC1024913"></div>
+                                    <p></p>
+                                </div>
+                            </section>
+                            <section id="ceo_latest_comics_widget-2" class="widget ceo_latest_comics_widget">
+                                <h3 class="widget-title">Latest Chapters</h3>
+                                <ul>
+                                    {% for chapter in chapters[-5:] %}
+                                    <li><a href="{{ url_for('solo_leveling.chapterPage', chapter=chapter.chapter) }}">Solo Leveling, {{chapter.label}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </body>
+    </html>
