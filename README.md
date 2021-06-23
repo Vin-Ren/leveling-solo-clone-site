@@ -27,11 +27,11 @@ run it with:
 Short option list
 ```
 -f|--image-folder <foldername> | Sets where the images are going to be saved
-							   | Default: 'images'
--o|--offset <offset>		   | Sets chapter scraping starting offset
-							   | Default: 0
--l|---limit <limit>			   | Sets scrape up to chapter limit
-							   | Default: 0
+                               | Default: 'images'
+-o|--offset <offset>           | Sets chapter scraping starting offset
+                               | Default: 0
+-l|---limit <limit>            | Sets scrape up to chapter limit
+                               | Default: 0
 ```
 While the scraper is running, it would spout a decent info log.
 > **Notes:**
@@ -47,9 +47,9 @@ starting the server:
 Short option list
 ```
 -h|--host <host>		 	   | sets webserver host
-							   | Default: '0.0.0.0' A.K.A 'localhost'
+                                           | Default: '0.0.0.0' A.K.A 'localhost'
 -p|--port <port>			   | Sets webserver port
-							   | Default: 8080
+                                           | Default: 8080
 ```
 
 You are now done! You can visit the site on localhost:8080 (localhost:8080 is the default host:port)
@@ -72,8 +72,8 @@ your_app_or_another_blueprint = Flask(__name__)
 
 your_app_or_another_blueprint. \
 register_blueprint(solo_leveling, \
-		url_prefix='/your_url_prefix_here') 
-		# Url prefix is optional
+                   url_prefix='/your_url_prefix_here') 
+                   # Url prefix is optional
 # Do Your stuff
 
 ```
