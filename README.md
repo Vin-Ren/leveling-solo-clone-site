@@ -70,10 +70,10 @@ from solo_leveling_clone_site.web import solo_leveling
 
 your_app_or_another_blueprint = Flask(__name__)
 
-your_app_or_another_blueprint.
-register_blueprint(solo_leveling, 
-				   url_prefix='/your_url_prefix_here') 
-				   # Url prefix is optional
+your_app_or_another_blueprint. \
+register_blueprint(solo_leveling, \
+		url_prefix='/your_url_prefix_here') 
+		# Url prefix is optional
 # Do Your stuff
 
 ```
