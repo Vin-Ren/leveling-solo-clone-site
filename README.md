@@ -1,4 +1,4 @@
-# LEVELING SOLO CLONE SILE
+# LEVELING SOLO CLONE SITE
 ## Intro
 A Crappy clone from the levelingsolo.com site
 
