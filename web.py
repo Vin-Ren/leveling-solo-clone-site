@@ -49,7 +49,7 @@ if __name__ == '__main__':
 	from flask import Flask
 
 	# A small arg parser
-	import sys.argv 
+	import sys
 	from getopt import getopt
 	host, port = '0.0.0.0', 8080
 	opts, args = getopt(sys.argv[1:], 'h:p:', ['host=', 'port='])

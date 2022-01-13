@@ -99,7 +99,8 @@ class Scraper(Requester):
 		self.chapters = [Chapter(link) for link in chapter_list.find_all('a')]
 
 	def get_chapters(self, offset=0, limit=0):
-		chapters = self.chapters[1:][::-1] # starts from latest ch-1 because latest contains only a timer.
+		# chapters = self.chapters[1:][::-1] # starts from latest ch-1 because latest contains only a timer.
+		# Not valid anymore because its done.
 		chapters = chapters[offset:limit] if limit else chapters[offset:] # if limit is 0, it will go to else.
 		for chapter in chapters:
 			print(f'Scraping: {chapter.name}')
@@ -112,7 +113,7 @@ class Scraper(Requester):
 
 if __name__ == '__main__':
 	# A small arg parser
-	import sys.argv 
+	import sys
 	from getopt import getopt
 	image_folder, offset, limit = 'images', 0, 0
 	opts, args = getopt(sys.argv[1:], 'f:o:l:', ['image-folder=', 'offset=', 'limit='])
