@@ -43,22 +43,33 @@ def chapterPage(chapter):
 def favicon():
 	return url_for('static', filename='favicons/192x192.png')
 
+def setupWaitressLogger():
+	logger = logging.getLogger('waitress')
+	logger.setLevel(logging.INFO)
+	handler = logging.FileHandler(filename=f'./logs.log', encoding='utf-8', mode='a')
+	handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+	logger.addHandler(handler)
 
 
 if __name__ == '__main__':
 	from flask import Flask
+	from argparse import ArgumentParser
 
-	# A small arg parser
-	import sys
-	from getopt import getopt
-	host, port = '0.0.0.0', 8080
-	opts, args = getopt(sys.argv[1:], 'h:p:', ['host=', 'port='])
-	for opt, val in opts:
-		if opt in ['-h', '--host']:
-			host = val
-		elif opt in ['-p', '--port']:
-			port = int(val)
+	parser = ArgumentParser(__name__, description="Simple Web Interface To Read Leveling Solo Manhwa.")
+	parser.add_argument('-p', '--port', dest='port', default='8080', type=int, help='Port to run the web server at. Default=80')
+	parser.add_argument('-a','--host', dest='host', default='0.0.0.0', help='Address to run the web server at. Default=0.0.0.0')
+	parser.add_argument('-t', '--threads', dest='threads', default=__import__('os').cpu_count()//2, 
+						help='Threads to run waitress(if available). Default={}(Half of your cpu threads).'.format(__import__('os').cpu_count()//2))
+	
+	args = parser.parse_args()
 
 	app = Flask(__name__)
 	app.register_blueprint(solo_leveling)
-	app.run(host=host, port=port)
+	
+	try:
+		# Waitress isn't necessary.
+		import waitress, logging
+		setupWaitressLogger()
+		waitress.serve(app, listen='{}:{}'.format(args.host, args.port), threads=args.threads)
+	except (ImportError):
+		app.run(host=args.host, port=args.port)

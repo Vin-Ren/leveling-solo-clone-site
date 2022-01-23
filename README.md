@@ -24,7 +24,7 @@ run it with:
 >python scraper.py 
 ```
 #### Opts
-Short option list
+Short option list (Can be viewed with -h or --help opt)
 ```
 -f|--image-folder <foldername> | Sets where the images are going to be saved
                                | Default: 'images'
@@ -44,12 +44,14 @@ starting the server:
 >python web.py
 ```
 #### Opts
-Short option list
+Short option list (Can be viewed with -h or --help opt)
 ```
--h|--host <host>		 	   | sets webserver host
+-a|--host <host>		 	   | sets webserver host
                                            | Default: '0.0.0.0' A.K.A 'localhost'
 -p|--port <port>			   | Sets webserver port
                                            | Default: 8080
+-t|--threads <threadcount>               | Sets thread count to be used by waitress if waitress is available.
+                                           | Default: Half of your cpu thread count.
 ```
 
 You are now done! You can visit the site on localhost:8080 (localhost:8080 is the default host:port)

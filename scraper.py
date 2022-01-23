@@ -112,17 +112,14 @@ class Scraper(Requester):
 
 
 if __name__ == '__main__':
-	# A small arg parser
-	import sys
-	from getopt import getopt
-	image_folder, offset, limit = 'images', 0, 0
-	opts, args = getopt(sys.argv[1:], 'f:o:l:', ['image-folder=', 'offset=', 'limit='])
-	for opt, val in opts:
-		if opt in ['-f', '--image-folder']:
-			image_folder = val
-		if opt in ['-o', '--offset']:
-			offset = int(val)
-		if opt in ['-l', '--limit']:
-			limit = int(val)
-	s = Scraper('images')
-	s.scrape(limit=limit, offset=offset)
+	from argparse import ArgumentParser
+
+	parser = ArgumentParser(__name__, description="Simple CLI app to scrape leveling solo manhwa chapters.")
+	parser.add_argument('-f','--image-folder', dest='image_folder', default='images', help='Image folder to store the images.')
+	parser.add_argument('-o', '--offset', dest='offset', default='0', type=int, help='Sets chapter scraping starting from chapter <offset>.')
+	parser.add_argument('-l', '--limit', dest='limit', default='0', type=int, help='Sets scrape up to chapter <limit>.')
+	
+	args = parser.parse_args()
+
+	s = Scraper(args.image_folder)
+	s.scrape(limit=args.limit, offset=args.offset)
