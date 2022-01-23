@@ -114,7 +114,7 @@ class Scraper(Requester):
 if __name__ == '__main__':
 	from argparse import ArgumentParser
 
-	parser = ArgumentParser(__name__, description="Simple CLI app to scrape leveling solo manhwa chapters.")
+	parser = ArgumentParser('scraper.py', description="Simple CLI app to scrape leveling solo manhwa chapters.")
 	parser.add_argument('-f','--image-folder', dest='image_folder', default='images', help='Image folder to store the images.')
 	parser.add_argument('-o', '--offset', dest='offset', default='0', type=int, help='Sets chapter scraping starting from chapter <offset>.')
 	parser.add_argument('-l', '--limit', dest='limit', default='0', type=int, help='Sets scrape up to chapter <limit>.')

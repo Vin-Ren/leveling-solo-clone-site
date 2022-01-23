@@ -55,7 +55,7 @@ if __name__ == '__main__':
 	from flask import Flask
 	from argparse import ArgumentParser
 
-	parser = ArgumentParser(__name__, description="Simple Web Interface To Read Leveling Solo Manhwa.")
+	parser = ArgumentParser('web.py', description="Simple Web Interface To Read Leveling Solo Manhwa.")
 	parser.add_argument('-p', '--port', dest='port', default='8080', type=int, help='Port to run the web server at. Default=80')
 	parser.add_argument('-a','--host', dest='host', default='0.0.0.0', help='Address to run the web server at. Default=0.0.0.0')
 	parser.add_argument('-t', '--threads', dest='threads', default=__import__('os').cpu_count()//2, 
